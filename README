@@ -1,12 +1,16 @@
 USING DOCKER
 
-Run the following docker command:
+Run the following docker commands:
+    cd src
+    docker build --tag 'smartapi' .
     docker run -p 5000:5000 -p 80:8000  smartapi
 
 
 MANUALLY RUNNING THE ENDPOINT:
 
 If no docker is available and there is python3 installed on the machine run: 
+
+    cd src
 
 from the src folder run:
     pip install -r requirements
@@ -18,6 +22,3 @@ then tp start the server
 THE UI
 
 the UI will run on http://localhost:5000/ui
-
-for manual run, select local from the dropdown the localhost address,
-for the docker run, select the address http://172.17.0.2:5000/ from the dropdown.
