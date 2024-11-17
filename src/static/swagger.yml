@@ -1,0 +1,44 @@
+openapi: 2.0.0
+info:
+  title: Market Oracle
+  description: Predict next 3 values of Stock price.
+  version: 1.0.0
+servers: 
+  - url: http://localhost:5000/
+  - url: http://172.17.0.2:5000/
+paths:
+  /upload:
+    post:
+      summary: Upload CSV file and return next 10 prices starting from a random position.
+      consumes:
+        - multipart/form-data
+      parameters:
+        - in: formData
+          name: csv_file
+          type: file
+          description: The file to upload.
+      responses:
+        '200':
+          description: Successfully uploaded CSV file
+        '400':
+          description: Bad request.
+        '404':
+          description: Not found.
+          
+  /predict:
+    post:
+      summary: Predict next 3 prices for a stock
+      consumes:
+        - multipart/form-data
+      parameters:
+        - in: formData
+          name: csv_file
+          type: file
+          description: The file to upload.
+      responses:
+        '200':
+          description: Successfully uploaded CSV file
+        '400':
+          description: Bad request.
+        '404':
+          description: Not found.
